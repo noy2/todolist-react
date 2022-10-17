@@ -37,8 +37,16 @@ export default function TodoList() {
     };
     nextId.current += 1;
     setTodos([...todos, data]);
-    console.log(todos);
     setText("");
+  }
+
+  const onChange = (id) => {
+    console.log(id);
+    setTodos(
+      todos.map((todo) => {
+        return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
+      })
+    );
   }
 
   return (
@@ -46,7 +54,7 @@ export default function TodoList() {
       <TodoListAddItem onCreate={onCreate} text={text} handleChange={handleChange} />
       <ul className='TodoList'>
         {todos.map((todo) => (
-          <TodoListItem todo={todo} key={todo.id} />
+          <TodoListItem todo={todo} key={todo.id} onChange={onChange}/>
         ))}
       </ul>
     </div>

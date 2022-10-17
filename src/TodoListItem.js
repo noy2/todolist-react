@@ -1,5 +1,5 @@
-export default function TodoListItem({todo}) {
-  const {id,text,checked} = todo;
+export default function TodoListItem({todo, onChange}) {
+  const { id, text, checked } = todo;
   return (
     <li className='TodoListItem'>
       <div className='aa'>
@@ -9,7 +9,7 @@ export default function TodoListItem({todo}) {
         ):(
           <div>{text}</div>
         )}</div>
-        <button className='checkButton'>{checked ? (
+        <button className='checkButton' onClick={() => onChange(id)}>{checked ? (
           'Uncheck'
         ):(
           'Check'
