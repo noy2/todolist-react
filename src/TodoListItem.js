@@ -1,4 +1,4 @@
-export default function TodoListItem({todo, onChange}) {
+export default function TodoListItem({ todo, onChange, onRemove }) {
   const { id, text, checked } = todo;
   return (
     <li className='TodoListItem'>
@@ -14,6 +14,7 @@ export default function TodoListItem({todo, onChange}) {
         ):(
           'Check'
         )}</button>
+        <button className="removeButton" onClick={() => onRemove(id)}>Remove</button>
       </div>
     </li>
   );

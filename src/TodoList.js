@@ -41,7 +41,6 @@ export default function TodoList() {
   }
 
   const onChange = (id) => {
-    console.log(id);
     setTodos(
       todos.map((todo) => {
         return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
@@ -49,12 +48,16 @@ export default function TodoList() {
     );
   }
 
+  const onRemove = (id) => {
+    return setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
   return (
     <div>
       <TodoListAddItem onCreate={onCreate} text={text} handleChange={handleChange} />
       <ul className='TodoList'>
         {todos.map((todo) => (
-          <TodoListItem todo={todo} key={todo.id} onChange={onChange}/>
+          <TodoListItem todo={todo} key={todo.id} onChange={onChange} onRemove={onRemove}/>
         ))}
       </ul>
     </div>
