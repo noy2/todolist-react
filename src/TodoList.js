@@ -8,19 +8,16 @@ export default function TodoList() {
       id: 1,
       text: "1. Make todo lists",
       checked: true,
-      edit: false,
     },
     {
       id: 2,
       text: "2. Add style",
       checked: true,
-      edit: false,
     },
     {
       id: 3,
       text: "3. Push to git",
       checked: false,
-      edit: false,
     },
   ]);
 
@@ -36,7 +33,6 @@ export default function TodoList() {
       id: nextId.current,
       text,
       checked: false,
-      edit: false,
     };
     nextId.current += 1;
     setTodos([...todos, data]);
