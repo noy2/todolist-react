@@ -1,12 +1,28 @@
+import { useState } from "react";
+
 export default function TodoListItem({
   todo,
   onChange,
   onRemove,
-  onClickEdit,
-  onChangeEditInput,
   newText,
+  setNewText,
+  onChangeEditInput,
 }) {
-  const { id, text, checked, edit } = todo;
+  const { id, text, checked } = todo;
+
+  const [edit, setEdit] = useState(false);
+
+  const onClickEdit = () => {
+    console.log(!edit);
+    setNewText(todo.text);
+    if (edit) {
+      todo.text = newText;
+      setEdit(false);
+    } else {
+      setEdit(true);
+    }
+  };
+
   return (
     <li className="TodoListItem">
       <div className="aa">

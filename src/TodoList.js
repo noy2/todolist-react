@@ -57,17 +57,6 @@ export default function TodoList() {
 
   const [newText, setNewText] = useState("");
 
-  const onClickEdit = (id) => {
-    setNewText(todos[id - 1].text);
-    setTodos(
-      todos.map((todo) => {
-        return todo.id === id
-          ? { ...todo, text: newText, edit: !todo.edit }
-          : todo;
-      })
-    );
-  };
-
   const onChangeEditInput = (e) => {
     setNewText(e.target.value);
   };
@@ -86,9 +75,9 @@ export default function TodoList() {
             key={todo.id}
             onChange={onChange}
             onRemove={onRemove}
-            onClickEdit={onClickEdit}
             onChangeEditInput={onChangeEditInput}
             newText={newText}
+            setNewText={setNewText}
           />
         ))}
       </ul>
