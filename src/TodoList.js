@@ -1,6 +1,47 @@
 import { useRef, useState } from "react";
 import TodoListItem from "./TodoListItem";
 import TodoListAddItem from "./TodoListAddItem";
+import styled, { css } from "styled-components";
+
+const Ul = styled.ul`
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+`;
+
+const Box = styled.div`
+  width: 800px;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 16px;
+`;
+
+const Divider = styled.div`
+  background-color: #ebebeb;
+  margin-left: -16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  width: calc(100% + 32px);
+  height: 1px;
+`;
+
+const H1 = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "SUIT";
+  line-height: 36px;
+  margin-left: 8px;
+`;
+
+const Description = styled.div`
+  font-size: 16px;
+  font-family: "SUIT";
+  margin-top: 4px;
+  color: #b4b4b4;
+  margin-left: 8px;
+`;
 
 export default function TodoList() {
   const [todos, setTodos] = useState([
@@ -58,13 +99,11 @@ export default function TodoList() {
   };
 
   return (
-    <div>
-      <TodoListAddItem
-        onCreate={onCreate}
-        text={text}
-        handleChange={handleChange}
-      />
-      <ul className="TodoList">
+    <Box>
+      <H1>To-do List</H1>
+      <Description>This is my todo list</Description>
+      <Divider />
+      <Ul className="TodoList">
         {todos.map((todo) => (
           <TodoListItem
             todo={todo}
@@ -76,7 +115,13 @@ export default function TodoList() {
             setNewText={setNewText}
           />
         ))}
-      </ul>
-    </div>
+      </Ul>
+      <Divider />
+      <TodoListAddItem
+        onCreate={onCreate}
+        text={text}
+        handleChange={handleChange}
+      />
+    </Box>
   );
 }

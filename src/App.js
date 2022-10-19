@@ -1,10 +1,27 @@
 import TodoList from "./TodoList";
+import styled, { css, createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+`;
+
+const Background = styled.div`
+  background-color: #f5f5f5;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default function App() {
   return (
     <div className="App">
-      <p>TodoList1</p>
-      <TodoList />
+      <GlobalStyle />
+      <Background>
+        <TodoList />
+      </Background>
     </div>
   );
 }
