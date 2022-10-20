@@ -30,14 +30,12 @@ const Divider = styled.div`
 const H1 = styled.div`
   font-size: 24px;
   font-weight: bold;
-  font-family: "SUIT";
   line-height: 36px;
   margin-left: 8px;
 `;
 
 const Description = styled.div`
   font-size: 16px;
-  font-family: "SUIT";
   margin-top: 4px;
   color: #b4b4b4;
   margin-left: 8px;

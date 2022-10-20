@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 const Text = styled.div`
   font-size: 16px;
-  font-family: "SUIT";
   ${(props) =>
     props.checked &&
     css`

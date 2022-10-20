@@ -4,6 +4,9 @@ import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+  body {
+    font-family: "SUIT";
+  }
 `;
 
 const Background = styled.div`
