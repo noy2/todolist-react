@@ -46,6 +46,12 @@ export default function TodoListItem({
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onClickEdit();
+    }
+  };
+
   return (
     <ListItem style={{ display: "flex" }}>
       <Align style={{ flex: 1 }}>
@@ -57,7 +63,11 @@ export default function TodoListItem({
           )}
         </IconButton>
         {edit ? (
-          <ItemInput onChange={onChangeEditInput} value={newText} />
+          <ItemInput
+            onChange={onChangeEditInput}
+            value={newText}
+            onKeyDown={handleKeyDown}
+          />
         ) : (
           <Text style={{ marginLeft: "8px" }} checked={checked}>
             {text}

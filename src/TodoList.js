@@ -45,17 +45,17 @@ export default function TodoList() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      text: "1. Make todo lists",
+      text: "Make todo lists",
       checked: true,
     },
     {
       id: 2,
-      text: "2. Add style",
+      text: "Add style",
       checked: true,
     },
     {
       id: 3,
-      text: "3. Push to git",
+      text: "Push to git",
       checked: false,
     },
   ]);
@@ -96,6 +96,12 @@ export default function TodoList() {
     setNewText(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onCreate();
+    }
+  };
+
   return (
     <Box>
       <H1>To-do List</H1>
@@ -119,6 +125,7 @@ export default function TodoList() {
         onCreate={onCreate}
         text={text}
         handleChange={handleChange}
+        handleKeyDown={handleKeyDown}
       />
     </Box>
   );

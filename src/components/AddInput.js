@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 const AddInput = styled.input`
+  font-family: "SUIT";
   font-size: 16px;
   padding: 8px;
   margin-right: 8px;

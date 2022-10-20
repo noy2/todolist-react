@@ -9,7 +9,12 @@ const AddItem = styled.div`
   align-items: center;
 `;
 
-export default function TodoListAddItem({ onCreate, text, handleChange }) {
+export default function TodoListAddItem({
+  onCreate,
+  text,
+  handleChange,
+  handleKeyDown,
+}) {
   return (
     <AddItem>
       <AddInput
@@ -17,6 +22,7 @@ export default function TodoListAddItem({ onCreate, text, handleChange }) {
         placeholder="Type here..."
         onChange={handleChange}
         value={text}
+        onKeyDown={handleKeyDown}
       />
       <IconButton className="addTodoButton" onClick={onCreate}>
         <HiPlus size="28px" />
